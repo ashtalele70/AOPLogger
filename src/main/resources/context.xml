@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Please do NOT change this file! -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	     http://www.springframework.org/schema/aop
+	     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	   ">
+
+    <!-- activate annotations in registered beans -->
+<!--    <context:annotation-config />-->
+
+<!--    &lt;!&ndash; Enable Spring AOP with AspectJ &ndash;&gt;-->
+    <aop:aspectj-autoproxy />
+    <bean name="triangle" class="com.aop.model.Triangle">
+        <property name="name" value="Triangle Name"/>
+    </bean>
+    <bean name="circle" class="com.aop.model.Circle">
+<!--        <property name="name" value="Circle Name"/>-->
+    </bean>
+
+    <bean name="shapeService" class="com.aop.service.ShapeService"
+          autowire="byName"></bean>
+
+    <bean name="loggingAspect" class="com.aop.aspect.LoggingAspect"></bean>
+</beans>
